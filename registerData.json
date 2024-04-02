@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "username": "hakiet123",
+    "password": "Abc12345",
+    "case": "Đăng ký thành công",
+    "assert": "Đăng ký thành công!",
+    "success": true
+  },
+  {
+    "id": 2,
+    "username": "ha@kiet123",
+    "password": "Abc12345",
+    "case": "Đăng ký thất bại, tên đăng nhập chứa ký tự đặc biệt",
+    "assert": "Đăng ký thất bại, tên đăng nhập không hợp lệ!",
+    "success": false
+  },
+  {
+    "id": 3,
+    "username": "2hakiet123",
+    "password": "Abc12345",
+    "case": "Đăng ký thất bại, tên đăng nhập bắt đầu bằng số",
+    "assert": "Đăng ký thất bại, tên đăng nhập không hợp lệ!",
+    "success": false
+  },
+  {
+    "id": 4,
+    "username": "ha kiet123",
+    "password": "Abc12345",
+    "case": "Đăng ký thất bại, tên đăng nhập chứa khoảng trắng",
+    "assert": "Đăng ký thất bại, tên đăng nhập không hợp lệ!",
+    "success": false
+  },
+  {
+    "id": 5,
+    "username": "hakiet123",
+    "password": "abc1234",
+    "case": "Đăng ký thất bại, mật khẩu quá ngắn",
+    "assert": "Đăng ký thất bại, mật khẩu không hợp lệ!",
+    "success": false
+  },
+  {
+    "id": 6,
+    "username": "hakiet123",
+    "password": "Abc!@12345",
+    "case": "Đăng ký thất bại, mật khẩu chứa ký tự đặc biệt",
+    "assert": "Đăng ký thất bại, mật khẩu không hợp lệ!",
+    "success": false
+  },
+  {
+    "id": 7,
+    "username": "hakiet123",
+    "password": "Abc ddefghj",
+    "case": "Đăng ký thất bại, mật khẩu có chứa khoảng trắng",
+    "assert": "Đăng ký thất bại, mật khẩu không hợp lệ!",
+    "success": false
+  },
+  {
+    "id": 8,
+    "username": "hakiet123",
+    "password": "abc12345",
+    "case": "Đăng ký thất bại, mật khẩu không chứa ít nhất một ký tự in hoa",
+    "assert": "Đăng ký thất bại, mật khẩu không hợp lệ!",
+    "success": false
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "username": "hakiet123",
+    "password": "Abc12345",
+    "case": "Đăng nhập thành công",
+    "assert": "Đăng nhập thành công! Vui lòng đợi trong giây lát...",
+    "success": true
+  },
+  {
+    "id": 2,
+    "username": "2hakiet123",
+    "password": "Abc12345",
+    "case": "Đăng nhập thất bại, tên đăng nhập bắt đầu bằng số",
+    "assert": "Tên đăng nhập không hợp lệ!",
+    "success": false
+  },
+  {
+    "id": 3,
+    "username": "ha kiet123",
+    "password": "Abc12345",
+    "case": "Đăng nhập thất bại, tên đăng nhập chứa khoảng trắng",
+    "assert": "Tên đăng nhập không hợp lệ!",
+    "success": false
+  },
+  {
+    "id": 4,
+    "username": "hakiet123",
+    "password": "Abc1234",
+    "case": "Đăng nhập thất bại, mật khẩu quá ngắn",
+    "assert": "Mật khẩu không hợp lệ!",
+    "success": false
+  },
+  {
+    "id": 5,
+    "username": "hakiet123",
+    "password": "Abc12 3456",
+    "case": "Đăng nhập thất bại, mật khẩu chứa khoảng trắng",
+    "assert": "Mật khẩu không hợp lệ!",
+    "success": false
+  },
+  {
+    "id": 6,
+    "username": "hakiet1",
+    "password": "Abc12345",
+    "case": "Đăng nhập thất bại, tên đăng nhập quá ngắn",
+    "assert": "Tên đăng nhập không hợp lệ!",
+    "success": false
+  }
+]

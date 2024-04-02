@@ -1,0 +1,2 @@
+--reporter mochawesome
+--reporter-options overwrite=true,html=false,json=true

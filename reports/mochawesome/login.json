@@ -1,0 +1,237 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-03-25T10:08:42.471Z",
+    "end": "2024-03-25T10:09:14.823Z",
+    "duration": 32352,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "48adcce1-44fa-4db2-a880-1c07fc804507",
+      "title": "",
+      "fullFile": "D:\\Lab\\seminar\\Selenium2\\loginWithMocha.js",
+      "file": "\\loginWithMocha.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3add877f-29c6-417f-bd05-9c54b78d8274",
+          "title": "Login Test",
+          "fullFile": "D:\\Lab\\seminar\\Selenium2\\loginWithMocha.js",
+          "file": "\\loginWithMocha.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Login Test\"",
+              "fullTitle": "Login Test \"before all\" hook in \"Login Test\"",
+              "timedOut": false,
+              "duration": 4525,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser(\"MicrosoftEdge\").build();\nthis.timeout(30000);\nawait driver.get(\"http://localhost:3000/auth/login\");\nawait driver.wait(until.elementLocated(By.id(\"email\")), 7000);\nawait driver.wait(until.elementLocated(By.id(\"password\")), 7000);\nawait setMySelector(driver, mySelector);",
+              "err": {},
+              "uuid": "5dfd7d42-0e89-40fb-8e89-64f1087de904",
+              "parentUUID": "3add877f-29c6-417f-bd05-9c54b78d8274",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Login Test\"",
+              "fullTitle": "Login Test \"after all\" hook in \"Login Test\"",
+              "timedOut": false,
+              "duration": 135,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "96a96a41-f830-490a-a2e9-ff9a984e4e6d",
+              "parentUUID": "3add877f-29c6-417f-bd05-9c54b78d8274",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Đăng nhập thành công",
+              "fullTitle": "Login Test Đăng nhập thành công",
+              "timedOut": false,
+              "duration": 4634,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(30000);\nawait driver.wait(\n  until.elementLocated(By.css(\"[test-id='test-01']\")),\n  7000\n);\nawait driver.wait(\n  until.elementLocated(By.css(\"[test-id='test-02']\")),\n  7000\n);\nconst usernameInput = await driver.findElement(\n  By.css(\"[test-id='test-01']\")\n);\nawait usernameInput.sendKeys(account.username);\nconst passwordInput = await driver.findElement(\n  By.css(\"[test-id='test-02']\")\n);\nawait passwordInput.sendKeys(account.password);\nawait driver.findElement(By.id(\"submit-btn\")).click();\nawait driver.wait(\n  until.elementLocated(By.css(\"div.Toastify__toast-body > div\")),\n  50000\n);\nconst div = await driver.findElement(\n  By.css(\"div.Toastify__toast-body > div\")\n);\nconst value = await div.getAttribute(\"innerHTML\");\nif (value === account.assert) {\n  console.log(\n    `Test case passed for account: ${account.username}, ${account.assert}, ${value}`\n  );\n} else {\n  console.log(`Test case failed for account: ${account.username}`);\n}\nif (account.success) {\n  await driver.wait(until.urlIs(\"http://localhost:3000/home\"), 5000);\n  const currentUrl = await driver.getCurrentUrl();\n  assert.strictEqual(currentUrl, \"http://localhost:3000/home\");\n  let userIcon = await driver.findElement(By.id(\"user-icon\"));\n  await driver.actions().move({ origin: userIcon }).perform();\n  await driver.wait(until.elementLocated(By.id(\"logout\")), 7000);\n  await driver.findElement(By.id(\"logout\")).click();\n  await driver.wait(until.elementLocated(By.id(\"email\")), 7000);\n  await driver.wait(until.elementLocated(By.id(\"password\")), 7000);\n  await setMySelector(driver, mySelector);\n} else {\n  assert.strictEqual(value, account.assert);\n  await usernameInput.sendKeys(Key.chord(Key.CONTROL, \"a\", Key.DELETE));\n  await passwordInput.sendKeys(Key.chord(Key.CONTROL, \"a\", Key.DELETE));\n  await driver.sleep(4000);\n}",
+              "err": {},
+              "uuid": "24c45f5b-6797-4d8d-a527-127b38cc3bf3",
+              "parentUUID": "3add877f-29c6-417f-bd05-9c54b78d8274",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Đăng nhập thất bại, tên đăng nhập bắt đầu bằng số",
+              "fullTitle": "Login Test Đăng nhập thất bại, tên đăng nhập bắt đầu bằng số",
+              "timedOut": false,
+              "duration": 4568,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(30000);\nawait driver.wait(\n  until.elementLocated(By.css(\"[test-id='test-01']\")),\n  7000\n);\nawait driver.wait(\n  until.elementLocated(By.css(\"[test-id='test-02']\")),\n  7000\n);\nconst usernameInput = await driver.findElement(\n  By.css(\"[test-id='test-01']\")\n);\nawait usernameInput.sendKeys(account.username);\nconst passwordInput = await driver.findElement(\n  By.css(\"[test-id='test-02']\")\n);\nawait passwordInput.sendKeys(account.password);\nawait driver.findElement(By.id(\"submit-btn\")).click();\nawait driver.wait(\n  until.elementLocated(By.css(\"div.Toastify__toast-body > div\")),\n  50000\n);\nconst div = await driver.findElement(\n  By.css(\"div.Toastify__toast-body > div\")\n);\nconst value = await div.getAttribute(\"innerHTML\");\nif (value === account.assert) {\n  console.log(\n    `Test case passed for account: ${account.username}, ${account.assert}, ${value}`\n  );\n} else {\n  console.log(`Test case failed for account: ${account.username}`);\n}\nif (account.success) {\n  await driver.wait(until.urlIs(\"http://localhost:3000/home\"), 5000);\n  const currentUrl = await driver.getCurrentUrl();\n  assert.strictEqual(currentUrl, \"http://localhost:3000/home\");\n  let userIcon = await driver.findElement(By.id(\"user-icon\"));\n  await driver.actions().move({ origin: userIcon }).perform();\n  await driver.wait(until.elementLocated(By.id(\"logout\")), 7000);\n  await driver.findElement(By.id(\"logout\")).click();\n  await driver.wait(until.elementLocated(By.id(\"email\")), 7000);\n  await driver.wait(until.elementLocated(By.id(\"password\")), 7000);\n  await setMySelector(driver, mySelector);\n} else {\n  assert.strictEqual(value, account.assert);\n  await usernameInput.sendKeys(Key.chord(Key.CONTROL, \"a\", Key.DELETE));\n  await passwordInput.sendKeys(Key.chord(Key.CONTROL, \"a\", Key.DELETE));\n  await driver.sleep(4000);\n}",
+              "err": {},
+              "uuid": "69fc1d6a-3da9-42d3-a4d1-13a8ad27ab6e",
+              "parentUUID": "3add877f-29c6-417f-bd05-9c54b78d8274",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Đăng nhập thất bại, tên đăng nhập chứa khoảng trắng",
+              "fullTitle": "Login Test Đăng nhập thất bại, tên đăng nhập chứa khoảng trắng",
+              "timedOut": false,
+              "duration": 4714,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(30000);\nawait driver.wait(\n  until.elementLocated(By.css(\"[test-id='test-01']\")),\n  7000\n);\nawait driver.wait(\n  until.elementLocated(By.css(\"[test-id='test-02']\")),\n  7000\n);\nconst usernameInput = await driver.findElement(\n  By.css(\"[test-id='test-01']\")\n);\nawait usernameInput.sendKeys(account.username);\nconst passwordInput = await driver.findElement(\n  By.css(\"[test-id='test-02']\")\n);\nawait passwordInput.sendKeys(account.password);\nawait driver.findElement(By.id(\"submit-btn\")).click();\nawait driver.wait(\n  until.elementLocated(By.css(\"div.Toastify__toast-body > div\")),\n  50000\n);\nconst div = await driver.findElement(\n  By.css(\"div.Toastify__toast-body > div\")\n);\nconst value = await div.getAttribute(\"innerHTML\");\nif (value === account.assert) {\n  console.log(\n    `Test case passed for account: ${account.username}, ${account.assert}, ${value}`\n  );\n} else {\n  console.log(`Test case failed for account: ${account.username}`);\n}\nif (account.success) {\n  await driver.wait(until.urlIs(\"http://localhost:3000/home\"), 5000);\n  const currentUrl = await driver.getCurrentUrl();\n  assert.strictEqual(currentUrl, \"http://localhost:3000/home\");\n  let userIcon = await driver.findElement(By.id(\"user-icon\"));\n  await driver.actions().move({ origin: userIcon }).perform();\n  await driver.wait(until.elementLocated(By.id(\"logout\")), 7000);\n  await driver.findElement(By.id(\"logout\")).click();\n  await driver.wait(until.elementLocated(By.id(\"email\")), 7000);\n  await driver.wait(until.elementLocated(By.id(\"password\")), 7000);\n  await setMySelector(driver, mySelector);\n} else {\n  assert.strictEqual(value, account.assert);\n  await usernameInput.sendKeys(Key.chord(Key.CONTROL, \"a\", Key.DELETE));\n  await passwordInput.sendKeys(Key.chord(Key.CONTROL, \"a\", Key.DELETE));\n  await driver.sleep(4000);\n}",
+              "err": {},
+              "uuid": "0cdfacd2-b9fc-4923-ad7b-746268f1885f",
+              "parentUUID": "3add877f-29c6-417f-bd05-9c54b78d8274",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Đăng nhập thất bại, mật khẩu quá ngắn",
+              "fullTitle": "Login Test Đăng nhập thất bại, mật khẩu quá ngắn",
+              "timedOut": false,
+              "duration": 4609,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(30000);\nawait driver.wait(\n  until.elementLocated(By.css(\"[test-id='test-01']\")),\n  7000\n);\nawait driver.wait(\n  until.elementLocated(By.css(\"[test-id='test-02']\")),\n  7000\n);\nconst usernameInput = await driver.findElement(\n  By.css(\"[test-id='test-01']\")\n);\nawait usernameInput.sendKeys(account.username);\nconst passwordInput = await driver.findElement(\n  By.css(\"[test-id='test-02']\")\n);\nawait passwordInput.sendKeys(account.password);\nawait driver.findElement(By.id(\"submit-btn\")).click();\nawait driver.wait(\n  until.elementLocated(By.css(\"div.Toastify__toast-body > div\")),\n  50000\n);\nconst div = await driver.findElement(\n  By.css(\"div.Toastify__toast-body > div\")\n);\nconst value = await div.getAttribute(\"innerHTML\");\nif (value === account.assert) {\n  console.log(\n    `Test case passed for account: ${account.username}, ${account.assert}, ${value}`\n  );\n} else {\n  console.log(`Test case failed for account: ${account.username}`);\n}\nif (account.success) {\n  await driver.wait(until.urlIs(\"http://localhost:3000/home\"), 5000);\n  const currentUrl = await driver.getCurrentUrl();\n  assert.strictEqual(currentUrl, \"http://localhost:3000/home\");\n  let userIcon = await driver.findElement(By.id(\"user-icon\"));\n  await driver.actions().move({ origin: userIcon }).perform();\n  await driver.wait(until.elementLocated(By.id(\"logout\")), 7000);\n  await driver.findElement(By.id(\"logout\")).click();\n  await driver.wait(until.elementLocated(By.id(\"email\")), 7000);\n  await driver.wait(until.elementLocated(By.id(\"password\")), 7000);\n  await setMySelector(driver, mySelector);\n} else {\n  assert.strictEqual(value, account.assert);\n  await usernameInput.sendKeys(Key.chord(Key.CONTROL, \"a\", Key.DELETE));\n  await passwordInput.sendKeys(Key.chord(Key.CONTROL, \"a\", Key.DELETE));\n  await driver.sleep(4000);\n}",
+              "err": {},
+              "uuid": "b6ce17d1-b299-47ad-b23e-a0e21dfa64f7",
+              "parentUUID": "3add877f-29c6-417f-bd05-9c54b78d8274",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Đăng nhập thất bại, mật khẩu chứa khoảng trắng",
+              "fullTitle": "Login Test Đăng nhập thất bại, mật khẩu chứa khoảng trắng",
+              "timedOut": false,
+              "duration": 4600,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(30000);\nawait driver.wait(\n  until.elementLocated(By.css(\"[test-id='test-01']\")),\n  7000\n);\nawait driver.wait(\n  until.elementLocated(By.css(\"[test-id='test-02']\")),\n  7000\n);\nconst usernameInput = await driver.findElement(\n  By.css(\"[test-id='test-01']\")\n);\nawait usernameInput.sendKeys(account.username);\nconst passwordInput = await driver.findElement(\n  By.css(\"[test-id='test-02']\")\n);\nawait passwordInput.sendKeys(account.password);\nawait driver.findElement(By.id(\"submit-btn\")).click();\nawait driver.wait(\n  until.elementLocated(By.css(\"div.Toastify__toast-body > div\")),\n  50000\n);\nconst div = await driver.findElement(\n  By.css(\"div.Toastify__toast-body > div\")\n);\nconst value = await div.getAttribute(\"innerHTML\");\nif (value === account.assert) {\n  console.log(\n    `Test case passed for account: ${account.username}, ${account.assert}, ${value}`\n  );\n} else {\n  console.log(`Test case failed for account: ${account.username}`);\n}\nif (account.success) {\n  await driver.wait(until.urlIs(\"http://localhost:3000/home\"), 5000);\n  const currentUrl = await driver.getCurrentUrl();\n  assert.strictEqual(currentUrl, \"http://localhost:3000/home\");\n  let userIcon = await driver.findElement(By.id(\"user-icon\"));\n  await driver.actions().move({ origin: userIcon }).perform();\n  await driver.wait(until.elementLocated(By.id(\"logout\")), 7000);\n  await driver.findElement(By.id(\"logout\")).click();\n  await driver.wait(until.elementLocated(By.id(\"email\")), 7000);\n  await driver.wait(until.elementLocated(By.id(\"password\")), 7000);\n  await setMySelector(driver, mySelector);\n} else {\n  assert.strictEqual(value, account.assert);\n  await usernameInput.sendKeys(Key.chord(Key.CONTROL, \"a\", Key.DELETE));\n  await passwordInput.sendKeys(Key.chord(Key.CONTROL, \"a\", Key.DELETE));\n  await driver.sleep(4000);\n}",
+              "err": {},
+              "uuid": "00178a87-f232-4629-a274-0e7436749e2f",
+              "parentUUID": "3add877f-29c6-417f-bd05-9c54b78d8274",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Đăng nhập thất bại, tên đăng nhập quá ngắn",
+              "fullTitle": "Login Test Đăng nhập thất bại, tên đăng nhập quá ngắn",
+              "timedOut": false,
+              "duration": 4550,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(30000);\nawait driver.wait(\n  until.elementLocated(By.css(\"[test-id='test-01']\")),\n  7000\n);\nawait driver.wait(\n  until.elementLocated(By.css(\"[test-id='test-02']\")),\n  7000\n);\nconst usernameInput = await driver.findElement(\n  By.css(\"[test-id='test-01']\")\n);\nawait usernameInput.sendKeys(account.username);\nconst passwordInput = await driver.findElement(\n  By.css(\"[test-id='test-02']\")\n);\nawait passwordInput.sendKeys(account.password);\nawait driver.findElement(By.id(\"submit-btn\")).click();\nawait driver.wait(\n  until.elementLocated(By.css(\"div.Toastify__toast-body > div\")),\n  50000\n);\nconst div = await driver.findElement(\n  By.css(\"div.Toastify__toast-body > div\")\n);\nconst value = await div.getAttribute(\"innerHTML\");\nif (value === account.assert) {\n  console.log(\n    `Test case passed for account: ${account.username}, ${account.assert}, ${value}`\n  );\n} else {\n  console.log(`Test case failed for account: ${account.username}`);\n}\nif (account.success) {\n  await driver.wait(until.urlIs(\"http://localhost:3000/home\"), 5000);\n  const currentUrl = await driver.getCurrentUrl();\n  assert.strictEqual(currentUrl, \"http://localhost:3000/home\");\n  let userIcon = await driver.findElement(By.id(\"user-icon\"));\n  await driver.actions().move({ origin: userIcon }).perform();\n  await driver.wait(until.elementLocated(By.id(\"logout\")), 7000);\n  await driver.findElement(By.id(\"logout\")).click();\n  await driver.wait(until.elementLocated(By.id(\"email\")), 7000);\n  await driver.wait(until.elementLocated(By.id(\"password\")), 7000);\n  await setMySelector(driver, mySelector);\n} else {\n  assert.strictEqual(value, account.assert);\n  await usernameInput.sendKeys(Key.chord(Key.CONTROL, \"a\", Key.DELETE));\n  await passwordInput.sendKeys(Key.chord(Key.CONTROL, \"a\", Key.DELETE));\n  await driver.sleep(4000);\n}",
+              "err": {},
+              "uuid": "6b378463-d69e-4acf-9a5a-3a8c85bf4dd9",
+              "parentUUID": "3add877f-29c6-417f-bd05-9c54b78d8274",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "24c45f5b-6797-4d8d-a527-127b38cc3bf3",
+            "69fc1d6a-3da9-42d3-a4d1-13a8ad27ab6e",
+            "0cdfacd2-b9fc-4923-ad7b-746268f1885f",
+            "b6ce17d1-b299-47ad-b23e-a0e21dfa64f7",
+            "00178a87-f232-4629-a274-0e7436749e2f",
+            "6b378463-d69e-4acf-9a5a-3a8c85bf4dd9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 27675,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.3.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "login",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports/mochawesome",
+        "reportFilename": "login",
+        "reportTitle": "'LOGIN"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

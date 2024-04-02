@@ -1,0 +1,27 @@
+{
+  "name": "selenium2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-login-excel": "node index.js",
+    "test-register-excel": "node register.js",
+    "register-testfile": "./node_modules/.bin/mocha --reporter mochawesome --reporter-options reportDir=reports/mochawesome,reportFilename=register,reportTitle='REGISTER TESTING',reportPageTitle='SEMINAR',reportAssetsDir=assets registerWithMocha.js",
+    "login-testfile": "./node_modules/.bin/mocha --reporter mochawesome --reporter-options reportDir=reports/mochawesome,reportFilename=login,reportTitle='LOGIN TESTING',reportPageTitle='SEMINAR',reportAssetsDir=assets loginWithMocha.js",
+    "add-logo": "node insertHeader.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mochawesome-merge": "^4.3.0",
+    "nodemailer": "^6.9.13",
+    "selenium-webdriver": "^4.18.1",
+    "wait-for-expect": "^3.0.2",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "mocha": "^10.3.0",
+    "mochawesome": "^7.1.3"
+  }
+}
